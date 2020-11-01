@@ -25,12 +25,12 @@ fi
 echo "Generating key request for $domain"
 
 #Generate a key
-openssl genrsa -des3 -passout pass:$password -out /etc/ssl/private/$domain/$domain.key 2048
+openssl genrsa -des3 -passout pass:$password -out /etc/ssl/$domain/private/$domain.key 2048
 
 echo "private key generated"
 #Create the request
 echo "Creating CSR"
-openssl req -new -key /etc/ssl/private/$domain/$domain.key -out /etc/ssl/csr/$domain/$domain.csr -passin pass:$password \
+openssl req -new -key /etc/ssl/$domain/private/$domain.key -out /etc/ssl/$domain/csr/$domain.csr -passin pass:$password \
     -subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
 
 echo "---------------------------"
