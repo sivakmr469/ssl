@@ -10,5 +10,6 @@
     ownca_privatekey_path: /etc/ssl/private/rootCA.key  
     provider: ownca
     privatekey_passphrase: ansible
+    ownca_privatekey_passphrase: ansible
     subject_alt_name:
       - ec.fivemarkers.com
