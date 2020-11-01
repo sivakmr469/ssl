@@ -30,7 +30,7 @@ openssl genrsa -des3 -passout pass:$password -out /etc/ssl/private/$domain/$doma
 echo "private key generated"
 #Create the request
 echo "Creating CSR"
-openssl req -new -key /etc/ssl/private/$domain.key -out /etc/ssl/csr/$domain/$domain.csr -passin pass:$password \
+openssl req -new -key /etc/ssl/private/$domain/$domain.key -out /etc/ssl/csr/$domain/$domain.csr -passin pass:$password \
     -subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
 
 echo "---------------------------"
