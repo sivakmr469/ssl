@@ -5,15 +5,15 @@
     - role: rootCA
 
 
-- name: SSL private and CSR generation
-  hosts: localhost
-  become: yes
-  roles:
-    - role: ssl
+# - name: SSL private and CSR generation
+#   hosts: localhost
+#   become: yes
+#   roles:
+#     - role: ssl
 
 
-- name: SSL cert generation request
-  hosts: localhost
-  become: yes
-  roles:
-    - role: cert
+# - name: SSL cert generation request
+#   hosts: localhost
+#   become: yes
+#   roles:
+#     - role: cert
