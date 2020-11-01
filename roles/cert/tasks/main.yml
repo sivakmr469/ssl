@@ -13,3 +13,12 @@
     ownca_privatekey_passphrase: ansible
     subject_alt_name:
       - ec.fivemarkers.com
+- name: ensure the below directories are created on target server
+  hosts: ansible
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "/etc/ssl/public"
+    - "/etc/ssl/csr"
+    - "/etc/ssl/private"
