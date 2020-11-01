@@ -1,5 +1,4 @@
 ---
 # tasks file for ssl
-tasks:
-- include: ssl.yaml
-- include: crt.yaml
+- include_tasks: ssl.yaml
+- include_tasks: crt.yaml
