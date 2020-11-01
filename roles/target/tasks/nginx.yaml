@@ -1,0 +1,14 @@
+- name: install nginx
+  yum:
+    name: nginx
+    state: installed
+
+- name: copy the config file
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+
+- name: start nginx
+  service:
+    name: nginx
+    state: restarted
