@@ -37,4 +37,4 @@ echo "---------------------------"
 echo "-----Below is your CSR-----"
 echo "---------------------------"
 echo
-cat /etc/ssl/csr/$domain.csr
+cat /etc/ssl/csr/$domain/$domain.csr

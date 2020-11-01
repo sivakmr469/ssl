@@ -3,8 +3,10 @@
 
 - name: Generate an OpenSSL public key in PEM format
   community.crypto.x509_certificate:
-    path: /etc/ssl/public/server.crt
-    privatekey_path: /etc/ssl/private/rootCA.key
-    csr_path: /etc/ssl/csr/rootCA.csr
-    provider: selfsigned
+    path: "/etc/ssl/public/{{domain}}/{{domain}}.crt"
+    privatekey_path: "/etc/ssl/private/{{domain}}/{{domain}}.key"
+    csr_path: "/etc/ssl/csr/{{domain}}/{{domain}}.csr"
+    ownca_path: /etc/ssl/public/rootCA.pem
+    ownca_privatekey_path: /etc/ssl/private/rootCA.key  
+    provider: ownca
     privatekey_passphrase: ansible

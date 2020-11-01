@@ -6,7 +6,7 @@
     path: "{{ item }}"
     state: directory
   loop:
-    - "/etc/ssl/{{domain}}/crt"
+    - "/etc/ssl/{{domain}}/public"
     - "/etc/ssl/{{domain}}/csr"
     - "/etc/ssl/{{domain}}/private"
 
