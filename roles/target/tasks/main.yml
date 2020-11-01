@@ -1,2 +1,18 @@
 ---
 # tasks file for target
+- name: create SSL directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "/etc/ssl/public"
+    - "/etc/ssl/csr"
+    - "/etc/ssl/private"
+
+- name: copy the private key and cert files
+  copy:
+    src: "{{item.src}}"
+    dest: "{{item.dest}}"
+  loop:
+  - {src: "/etc/ssl/{{domain}}/public/{{domain}}.crt", dest: "/etc/ssl/public/{{domain}}.crt"}
+  - {src: "/etc/ssl/{{domain}}/private/{{domain}}.key", dest: "/etc/ssl/private/{{domain}}.key"}
