@@ -1,2 +1,2 @@
 - include_tasks: certs.yaml
-- include_tasks: nginx.yal
+- include_tasks: nginx.yaml
