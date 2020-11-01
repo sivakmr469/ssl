@@ -12,8 +12,8 @@
     - role: ssl
 
 
-- name: SSL cert generation request
-  hosts: localhost
-  become: yes
-  roles:
-    - role: cert
+# - name: SSL cert generation request
+#   hosts: localhost
+#   become: yes
+#   roles:
+#     - role: cert
