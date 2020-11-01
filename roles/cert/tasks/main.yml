@@ -1,0 +1,10 @@
+---
+# tasks file for cert
+
+- name: Generate an OpenSSL public key in PEM format
+  community.crypto.x509_certificate:
+    path: /etc/ssl/public/server.crt
+    privatekey_path: /etc/ssl/private/rootCA.key
+    csr_path: /etc/ssl/csr/rootCA.csr
+    provider: selfsigned
+    privatekey_passphrase: ansible

@@ -1,0 +1,14 @@
+---
+# tasks file for ssl
+
+- name: create SSL directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - /etc/ssl/crt
+    - /etc/ssl/csr 
+    - /etc/ssl/private
+
+- name: generate private key and csr
+  script: "ssl.sh {{domain}}"

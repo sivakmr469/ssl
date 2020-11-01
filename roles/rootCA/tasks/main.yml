@@ -1,0 +1,33 @@
+---
+# tasks file for rootCA
+- name: Ensure python OpenSSL dependencies are installed.
+  pip:
+    name: pyOpenSSL
+    state: present
+
+- name: Generate an OpenSSL private key with the default values (4096 bits, RSA) and a passphrase
+  community.crypto.openssl_privatekey:
+    path: /etc/ssl/private/rootCA.key
+    passphrase: ansible
+    type: DSA
+    size: 2048
+    cipher: aes256
+    force: yes
+
+- name: Generate an OpenSSL Certificate Signing Request with Subject information
+  community.crypto.openssl_csr:
+    path: /etc/ssl/csr/rootCA.csr
+    privatekey_path: /etc/ssl/private/rootCA.key
+    privatekey_passphrase: ansible
+    country_name: SG
+    organization_name: MAS
+    email_address: sivakmr469@gmail.com
+    common_name: mas.gov.sg
+
+- name: Generate an OpenSSL public key in PEM format
+  community.crypto.x509_certificate:
+    path: /etc/ssl/public/rootCA.pem
+    privatekey_path: /etc/ssl/private/rootCA.key
+    csr_path: /etc/ssl/csr/rootCA.csr
+    provider: selfsigned
+    privatekey_passphrase: ansible
