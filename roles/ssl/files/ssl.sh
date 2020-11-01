@@ -13,7 +13,7 @@ organizationalunit=IT
 email=sivakmr469@gmail.com
 
 #Optional
-password=dummypassword
+password=ansible
 
 if [ -z "$domain" ]
 then
